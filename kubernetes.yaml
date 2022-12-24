@@ -22,24 +22,3 @@ spec:
           resources: {}
           imagePullPolicy: Always
 status: {}
----
-apiVersion: v1
-kind: Service
-metadata:
-  annotations:
-    cloud.google.com/neg: '{"ingress":true}'
-  labels:
-    app: ms-sender
-  namespace: default
-spec:
-  internalTrafficPolicy: Cluster
-  ipFamilies:
-    - IPv4
-  ipFamilyPolicy: SingleStack
-  ports:
-    - port: 50051
-      protocol: TCP
-      targetPort: 50051
-  selector:
-    app: ms-sender
-  type: ClusterIP
