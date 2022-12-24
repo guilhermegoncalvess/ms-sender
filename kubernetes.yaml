@@ -3,22 +3,43 @@ kind: Deployment
 metadata:
   creationTimestamp: null
   labels:
-    app: service-a
-  name: service-a
+    app: ms-sender
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: service-a
+      app: ms-sender
   strategy: {}
   template:
     metadata:
       creationTimestamp: null
       labels:
-        app: service-a
+        app: ms-sender
     spec:
       containers:
-        - image: example-image
-          name: example-image
+        - image: gcr.io/learning-357114/ms-sender:1.0.0
+          name: ms-sender
           resources: {}
+          imagePullPolicy: Always
 status: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    cloud.google.com/neg: '{"ingress":true}'
+  labels:
+    app: ms-sender
+  namespace: default
+spec:
+  internalTrafficPolicy: Cluster
+  ipFamilies:
+    - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+    - port: 50051
+      protocol: TCP
+      targetPort: 50051
+  selector:
+    app: ms-sender
+  type: ClusterIP
