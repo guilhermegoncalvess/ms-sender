@@ -5,6 +5,7 @@ metadata:
   creationTimestamp: null
   labels:
     app: ms-sender
+  name: ms-sender
 spec:
   replicas: 1
   selector:
