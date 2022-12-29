@@ -21,7 +21,7 @@ spec:
       volumes:
       - name: google-cloud-key
         secret:
-          secretName: pubsub-key
+          secretName: ms-sender-pubsub-key
       containers:
         - image: gcr.io/learning-357114/ms-sender:1.0.0
           name: ms-sender
