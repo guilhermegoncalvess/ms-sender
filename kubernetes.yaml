@@ -1,3 +1,4 @@
+# prettier-ignore
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -16,9 +17,19 @@ spec:
       labels:
         app: ms-sender
     spec:
+      volumes:
+      - name: google-cloud-key
+        secret:
+          secretName: pubsub-key
       containers:
         - image: gcr.io/learning-357114/ms-sender:1.0.0
           name: ms-sender
           resources: {}
           imagePullPolicy: Always
+      volumeMounts:
+      - name: google-cloud-key
+        mountPath: /var/secrets/google
+      env:
+      - name: GOOGLE_APPLICATION_CREDENTIALS
+        value: /var/secrets/google/key.json
 status: {}
