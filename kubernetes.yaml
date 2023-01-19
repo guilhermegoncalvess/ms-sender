@@ -33,4 +33,10 @@ spec:
           env:
           - name: GOOGLE_APPLICATION_CREDENTIALS
             value: /var/secrets/google/ms-sender-pubsub-credentials.json
+          resources:
+            requests:
+              cpu: "50m"
+              memory: "128Mi"
+            limits:
+              memory: '400Mi'
 status: {}
