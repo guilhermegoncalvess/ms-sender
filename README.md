@@ -99,6 +99,13 @@ Despite the challenges, the presented prototype meets several characteristics of
 The microservices architecture enables a high level of cohesion, low coupling, and high availability, as the microservices are deployed independently, offering the following benefits: A microservice has responsibilities with a closed scope; Corrective or adaptive maintenance is performed on each microservice, enabling error reduction and increased code traceability; Scalability when there is an overload of demand on a microservice.
 For future work, it is suggested to improve the created prototype, adding new business responsibilities that result in new microservices. Optimizing cloud resources is necessary as new microservices are created. In addition, it is advised to search for monitoring and observability of microservices and cloud services. Finally, consider also creating a front-end application that uses the available microservices in order to complete the system as a whole.
 
-#### Technologies Used
+### Microservices Repositories
 
+* [User Microservice](https://github.com/guilhermegoncalvess/ms-user)
+* [Catalog Microservice](https://github.com/guilhermegoncalvess/ms-catalog)
+* [Cart Microservice](https://github.com/guilhermegoncalvess/ms-cart)
+* [Order Microservice](https://github.com/guilhermegoncalvess/ms-order)
+* [Sender Microservice](https://github.com/guilhermegoncalvess/ms-sender)
+  
+### Technologies Used
 NodeJS, Express, Python, gRPC, SMTP, Docker, Kubernetes, Github Actions, C4 Model, Google Cloud Platform (GCP), Google Cloud SQL, Google Kubernetes Engine(GKE), Google Cloud Client Libraries, Google Cloud PubSub, MongoDB Atlas.
